@@ -14,7 +14,7 @@ Upload a JSON file to a request S3 bucket; an S3 event triggers a Lambda functio
 serverless-translator/
 **
 
-├─ template.yaml              # CloudFormation template
+**├─ template.yaml              # CloudFormation template
 ├─ .gitignore
 ├─ README.md                  # <-- you are here
 ├─ src/
@@ -24,7 +24,7 @@ serverless-translator/
 │  └─ english_to_spanish.json
 └─ docs/
    └─ project-doc.pdf         # Full project write-up
-
+**
 
    
 
