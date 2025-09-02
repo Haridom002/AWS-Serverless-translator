@@ -13,18 +13,21 @@ Upload a JSON file to a request S3 bucket; an S3 event triggers a Lambda functio
 📂** Repository layout (what’s in this repo)
 serverless-translator/
 **
-
-**├─ template.yaml              # CloudFormation template
+```
+serverless-translator/
 ├─ .gitignore
-├─ README.md                  # <-- you are here
+├─ README.md                  # <-- You are here
+├─ template.yaml              # CloudFormation Infrastructure as Code
 ├─ src/
-│  └─ translate_handler.py    # Lambda function code
+│  └─ translate_handler.py    # Lambda function code (Python + Boto3)
 ├─ samples/
-│  ├─ english_to_french.json
+│  ├─ english_to_french.json  # Sample input files
 │  └─ english_to_spanish.json
 └─ docs/
    └─ project-doc.pdf         # Full project write-up
-**
+```
+
+---
 
    
 
