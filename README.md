@@ -1,15 +1,18 @@
-Serverless Translator (AWS Capstone Project)
+**Serverless Translator (AWS Capstone Project)**
+
 
 Clear, step-by-step guide so anyone can understand, deploy, test, and extend this project.
 This repo implements an event-driven, serverless translation pipeline on AWS using CloudFormation, Lambda (Python + Boto3), Amazon Translate, and S3.
 
-🔎 Project summary (one sentence)
+
+
+🔎 **Project summary **
 
 Upload a JSON file to a request S3 bucket; an S3 event triggers a Lambda function that uses Amazon Translate and writes the translated JSON to a response S3 bucket.
 
-📂 Repository layout (what’s in this repo)
+📂** Repository layout (what’s in this repo)
 serverless-translator/
-
+**
 
 ├─ template.yaml              # CloudFormation template
 ├─ .gitignore
@@ -25,7 +28,7 @@ serverless-translator/
 
    
 
-🧰 Tools & technologies
+**🧰 Tools & technologies**
 
 AWS services: Amazon S3, AWS Lambda, Amazon Translate, IAM, CloudFormation, CloudWatch
 
@@ -47,13 +50,20 @@ Lambda writes the translated JSON file to the Response S3 Bucket.
 
 User retrieves the translated file from the response bucket.
 
+
+
+
 ✅ **Console step-by-step guide (exact actions you can follow)
 Step 0 — Prepare**
 
 Region: use us-east-1 (N. Virginia) for testing if you followed the project notes.
 Make sure your AWS account has permissions to create S3 buckets, Lambda, IAM roles, and to use Amazon Translate. Enable Amazon Translate in the account if required.
 
-Step 1 — Create S3 buckets (request and response)
+
+
+
+
+**Step 1 — Create S3 buckets (request and response)**
 
 In the S3 console, create two buckets:
 
@@ -62,7 +72,10 @@ request-bucket-demo-yourname (input)
 response-bucket-demo-yourname (output)
 Keep default settings for now. Note the exact names — you will use them in Lambda or CloudFormation.
 
-Step 2 — Create IAM role for Lambda (console)
+
+
+
+**Step 2 — Create IAM role for Lambda (console)**
 
 Open IAM → Roles → Create role.
 
@@ -80,7 +93,10 @@ Name the role LambdaTranslateRole and create it.
 
 Recommendation: For production, scope S3 and Translate permissions to exact resources (least privilege). Do not use * unless it’s a separate test account.
 
-Step 3 — Create the Lambda function
+
+
+
+**Step 3 — Create the Lambda function**
 
 Lambda → Create function → Author from scratch.
 
@@ -100,7 +116,10 @@ RESPONSE_BUCKET = your response bucket name
 
 Optional: DEFAULT_SOURCE_LANG, DEFAULT_TARGET_LANG
 
-Step 4 — Add S3 trigger to Lambda
+
+
+
+**Step 4 — Add S3 trigger to Lambda**
 
 On the Lambda function page → Triggers → Add trigger.
 
@@ -116,7 +135,10 @@ Add the trigger.
 
 Now Lambda is invoked automatically when an object is uploaded.
 
-Step 5 — Manual end-to-end test (console)
+
+
+
+**Step 5 — Manual end-to-end test (console)**
 
 Upload samples/english_to_spanish.json to your request bucket via the S3 console.
 
@@ -130,7 +152,8 @@ Open the response bucket and verify there is a translated file (for example samp
 
 
 
-⚙️ CloudFormation (Infrastructure as Code) — deploy from this repo
+**⚙️ CloudFormation (Infrastructure as Code) — deploy from this repo
+**
 
 The CloudFormation file in this repo is template.yaml.
 
@@ -139,7 +162,7 @@ Create a deployment artifact bucket (CloudFormation needs it):
 aws s3 mb s3://your-unique-deployment-bucket
 
 
-Package the CloudFormation template
+**Package the CloudFormation template**
 
 aws cloudformation package \
   --template-file template.yaml \
@@ -147,7 +170,7 @@ aws cloudformation package \
   --output-template-file packaged.yaml
 
 
-Deploy the packaged template
+**Deploy the packaged template**
 
 aws cloudformation deploy \
   --template-file packaged.yaml \
@@ -155,7 +178,7 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_IAM
 
 
-Notes:
+**Notes:**
 
 CAPABILITY_IAM is required because the stack creates an IAM role.
 
@@ -167,7 +190,7 @@ If hardcoded bucket names cause conflicts, use CloudFormation parameters or let 
 
 
 
-🔬 Sample input and expected output
+**🔬 Sample input and expected output**
 
 Sample input JSON (upload to request bucket):
 
@@ -194,7 +217,7 @@ Expected output JSON (in response bucket):
 
 
 
-🧪 Testing & validation checklist
+**🧪 Testing & validation checklist**
 
 Upload test files for language pairs (English↔Spanish, English↔French).
 
@@ -209,7 +232,7 @@ Verify S3 lifecycle policies (request files 30 days, response files 60 days).
 
 
 
-🛠 Troubleshooting (common issues and fixes)
+**🛠 Troubleshooting (common issues and fixes)**
 
 SubscriptionRequiredException from Amazon Translate
 
@@ -219,7 +242,7 @@ CloudFormation rollback due to bucket name conflicts
 
 Fix: Don’t hardcode public/global bucket names. Use parameters or allow CloudFormation to generate unique names.
 
-Access denied errors
+**Access denied errors**
 
 Fix: Ensure the Lambda execution role includes specific S3 access to the request and response buckets and proper Translate permissions.
 
@@ -229,7 +252,7 @@ Fix: Ensure the Lambda execution role includes specific S3 access to the request
 
 
 
-🧹 Cleanup (avoid ongoing charges)
+**🧹 Cleanup (avoid ongoing charges)**
 
 Delete the CloudFormation stack:
 
@@ -244,7 +267,7 @@ Empty and delete any S3 buckets created by the stack (CloudFormation won’t del
 
 
 
-🔒 Security considerations (what I applied)
+🔒 **Security considerations (what I applied)**
 
 Least privilege IAM for Lambda role.
 
@@ -259,7 +282,7 @@ Lifecycle policies to limit data retention.
 
 
 
-📦 Deliverables (what to look for in the repo)
+📦** Deliverables (what to look for in the repo)**
 
 template.yaml — CloudFormation template provisioning buckets and IAM role.
 
@@ -275,7 +298,7 @@ docs/project-doc.pdf — Full write-up and step-by-step report.
 
 
 
-📝 Lessons learned (short and bold)
+📝 **Lessons learned (short and bold)**
 
 Start manual, then automate. Console setup helped me learn service relationships before switching to IaC.
 
@@ -293,7 +316,7 @@ Iterate in milestones. Breaking the project into phases prevented big failures.
 
 
 
-🚀 Roadmap / future improvements
+🚀** Roadmap / future improvements**
 
 Add API Gateway for real-time REST translation requests.
 
