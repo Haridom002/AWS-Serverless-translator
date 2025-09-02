@@ -1,0 +1,76 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  CloudFormation stack for AWS Translate Capstone Project.
+  Provisions 2 S3 Buckets (request + response) with lifecycle rules 
+  and an IAM Role for Lambda with Translate + S3 access.
+
+Resources:
+  RequestBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      # no hardcoded name to avoid global name conflict
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireRequest
+            Status: Enabled
+            ExpirationInDays: 30
+
+  ResponseBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireResponse
+            Status: Enabled
+            ExpirationInDays: 60
+
+  TranslateLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # DO NOT hardcode RoleName → allow CFN to auto-generate unique name
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: 
+                - lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: TranslateAndS3Access
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: translate:TranslateText
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                Resource:
+                  Fn::Sub: "arn:aws:s3:::${RequestBucket}/*"
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                Resource:
+                  Fn::Sub: "arn:aws:s3:::${ResponseBucket}/*"
+
+Outputs:
+  RequestBucketName:
+    Description: Name of the request S3 bucket
+    Value:
+      Ref: RequestBucket
+
+  ResponseBucketName:
+    Description: Name of the response S3 bucket
+    Value:
+      Ref: ResponseBucket
+
+  LambdaRoleArn:
+    Description: IAM Role ARN for the Lambda function
+    Value:
+      Fn::GetAtt:
+        - TranslateLambdaRole
+        - Arn

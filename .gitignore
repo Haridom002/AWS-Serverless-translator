@@ -1,0 +1,19 @@
+# Python ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.env
+.idea/
+.vscode/
+
+# Operating System ignores
+.DS_Store
+Thumbs.db
+
+# AWS-related ignores (CRUCIAL: NEVER commit credentials or large binaries!)
+.aws/                       # Contains AWS credentials - DO NOT COMMIT!
+lambda_function.zip         # Your packaged Lambda code - it's a deployment artifact, not source
+packaged.yaml               # If you use 'aws cloudformation package' - also a deployment artifact
