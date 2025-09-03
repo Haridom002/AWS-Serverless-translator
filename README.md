@@ -285,7 +285,7 @@ Lifecycle policies to limit data retention.
 
 
 
-📦** Deliverables (what to look for in the repo)**
+**📦Deliverables (what to look for in the repo)**
 
 template.yaml — CloudFormation template provisioning buckets and IAM role.
 
@@ -319,7 +319,7 @@ Iterate in milestones. Breaking the project into phases prevented big failures.
 
 
 
-🚀** Roadmap / future improvements**
+**🚀 Roadmap / future improvements**
 
 Add API Gateway for real-time REST translation requests.
 
@@ -329,10 +329,12 @@ Add S3 Glacier lifecycle rules for long-term archiving.
 
 Add CI/CD pipeline (CodePipeline) for automated Lambda deployments.
 
-How My Project Lives on GitHub (For Everyone!)
+
+**How My Project Lives on GitHub (For Everyone!)**
+
 You've seen my amazing Serverless Translator in action – it automatically translates files for me! But how did all that code and all those instructions end up in a place like GitHub, where everyone can see it and use it?
 
-Think of it like building a fantastic LEGO creation and then sharing it with the world:
+**Think of it like building a fantastic LEGO creation and then sharing it with the world:**
 
 
 
@@ -390,7 +392,7 @@ git push
 
 ```
 
+**Refer to the link for a comprehensive document outlining the full project process. I hope you find it useful and informative.**
 
 
-
-[📄 Project Documentation (PDF)](docs/project-doc.pdf)
+**[📄 Project Documentation (PDF)](docs/project-doc.pdf)**
