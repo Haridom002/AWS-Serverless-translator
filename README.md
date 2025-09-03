@@ -341,25 +341,25 @@ Think of it like building a fantastic LEGO creation and then sharing it with the
 First, all the "brains" of my translator – my CloudFormation blueprint, my Python code, my sample files – were carefully built and organized right here on my computer, just like a complete LEGO model on my desk.
 Getting a Special Camera for My Project (Git Init):
 
-To make sure I could keep a perfect, step-by-step record, I introduced a tool called Git. Imagine Git as a super-smart camera. I "turned on the camera" (git init) and told it to start watching my LEGO project folder.
+**To make sure I could keep a perfect, step-by-step record**, I introduced a tool called Git. Imagine Git as a super-smart camera. I "turned on the camera" (git init) and told it to start watching my LEGO project folder.
 Making a "Do Not Disturb" List (.gitignore):
 
-Some things on my desk aren't part of the final LEGO masterpiece – like my empty coffee cups, some temporary notes, or tools. I created a special list (.gitignore) for the camera, telling it, "Hey, don't take pictures of these messy or private bits!" This keeps my official project photos clean and focused.
+**Some things on my desk aren't part of the final LEGO masterpiece** – like my empty coffee cups, some temporary notes, or tools. I created a special list (.gitignore) for the camera, telling it, "Hey, don't take pictures of these messy or private bits!" This keeps my official project photos clean and focused.
 Setting Up My Online Art Gallery (Create GitHub Repository):
 
-To share my amazing LEGO creation, I needed an online space. I went to GitHub.com (think of it as a fancy online art gallery or photo album for code) and "opened a brand new, empty gallery" (new repository) specifically named "Serverless Translator."
+**To share my amazing LEGO creation**, I needed an online space. I went to GitHub.com (think of it as a fancy online art gallery or photo album for code) and "opened a brand new, empty gallery" (new repository) specifically named "Serverless Translator."
 Telling the Camera Where My Gallery Is (Git Remote Add Origin):
 
-My smart camera (Git) on the desk needed directions to my new online gallery. I "gave the camera the exact address" (git remote add origin ...) of the empty gallery I just made on GitHub.
+**My smart camera (Git) on the desk needed directions to my new online galler**y. I "gave the camera the exact address" (git remote add origin ...) of the empty gallery I just made on GitHub.
 Taking the Perfect Snapshot with a Story (Git Add & Git Commit):
 
-Once everything was perfect on the desk, I "carefully framed and took a perfect photo" (git add .) of my entire LEGO creation. Then, I "added a short story or caption" (git commit -m "Initial setup...") to that photo, explaining, "This is the very first, complete version of my Serverless Translator, ready to go!"
+**Once everything was perfect on the desk**, I "carefully framed and took a perfect photo" (git add .) of my entire LEGO creation. Then, I "added a short story or caption" (git commit -m "Initial setup...") to that photo, explaining, "This is the very first, complete version of my Serverless Translator, ready to go!"
 Uploading to the Online Gallery (Git Push):
 
-Finally, I "uploaded that perfect photo and its story" (git push) from my local camera directly to my online gallery on GitHub.
+**Finally**, I "uploaded that perfect photo and its story" (git push) from my local camera directly to my online gallery on GitHub.
 Checking My Gallery (Verify on GitHub):
 
-I then visited my GitHub page, refreshed, and voilà! My entire "Serverless Translator" project – the blueprint, the code, the examples – was neatly organized and proudly displayed in its online gallery, ready for anyone to explore.
+**I then visited my GitHub page**, refreshed, and voilà! My entire "Serverless Translator" project – the blueprint, the code, the examples – was neatly organized and proudly displayed in its online gallery, ready for anyone to explore.
 This process ensures that my project is not only built beautifully but is also beautifully documented, version-controlled, and accessible to everyone who wants to understand and learn from it!
 
 
