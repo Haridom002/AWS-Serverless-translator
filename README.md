@@ -335,8 +335,8 @@ You've seen my amazing Serverless Translator in action – it automatically tran
 Think of it like building a fantastic LEGO creation and then sharing it with the world:
 
 
-```
-My LEGO Masterpiece (My Project on My Computer):
+
+**My LEGO Masterpiece (My Project on My Computer):**
 
 First, all the "brains" of my translator – my CloudFormation blueprint, my Python code, my sample files – were carefully built and organized right here on my computer, just like a complete LEGO model on my desk.
 Getting a Special Camera for My Project (Git Init):
@@ -364,5 +364,33 @@ This process ensures that my project is not only built beautifully but is also b
 
 
 ```
+
+# 1. Initialize Git in your project folder
+git init
+
+# 2. Add all project files
+git add .
+
+# 3. Commit with a message
+git commit -m "Initial commit - Serverless Translator project"
+
+# 4. Link your local repo to GitHub (replace with your repo link)
+git remote add origin https://github.com/your-username/serverless-translator.git
+
+# 5. Push to GitHub (first time, set upstream to main)
+git branch -M main
+git push -u origin main
+After this, your project will be live on GitHub.
+For later changes, you’ll only need:
+
+git add .
+git commit -m "Describe what changed"
+git push
+
+
+```
+
+
+
 
 [📄 Project Documentation (PDF)](docs/project-doc.pdf)
