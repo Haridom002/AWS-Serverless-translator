@@ -5,14 +5,14 @@ Clear, step-by-step guide so anyone can understand, deploy, test, and extend thi
 This repo implements an event-driven, serverless translation pipeline on AWS using CloudFormation, Lambda (Python + Boto3), Amazon Translate, and S3.
 
 
-
-🔎 **Project summary **
+**🔎 Project Summary**
 
 Upload a JSON file to a request S3 bucket; an S3 event triggers a Lambda function that uses Amazon Translate and writes the translated JSON to a response S3 bucket.
 
-📂** Repository layout (what’s in this repo)
-serverless-translator/
-**
+
+**📂 Repository Layout – serverless-translator/**
+
+
 ```
 serverless-translator/
 ├─ .gitignore
@@ -39,9 +39,12 @@ Language: Python 3.9
 
 SDK: Boto3
 
-🏗 System architecture (step-by-step)
 
-User uploads a JSON file into the Request S3 Bucket.
+
+
+**🏗 System architecture (step-by-step)**
+
+**User uploads a JSON file into the Request S3 Bucket.**
 
 S3 generates an event for the new object and triggers the Lambda function.
 
@@ -94,7 +97,7 @@ AWSLambdaBasicExecutionRole (for CloudWatch logs)
 
 Name the role LambdaTranslateRole and create it.
 
-Recommendation: For production, scope S3 and Translate permissions to exact resources (least privilege). Do not use * unless it’s a separate test account.
+**Recommendation: For production, scope S3 and Translate permissions to exact resources (least privilege). Do not use * unless it’s a separate test account.**
 
 
 
